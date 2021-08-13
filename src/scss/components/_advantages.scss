@@ -1,0 +1,168 @@
+.advantages {
+  padding: rem(60) 0 rem(75);
+  background-color: #f4f6fd;
+
+  @include lg {
+    padding: rem(50) 0;
+  }
+
+  @include md {
+    padding: rem(40) 0;
+  }
+
+  @include sm {
+    padding: rem(30) 0;
+  }
+
+  @include xs {
+    padding: rem(25) 0;
+  }
+
+
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__item {
+    width: calc(25% - 11px);
+    background-color: $wc;
+    padding: rem(15) rem(23);
+    box-sizing: border-box;
+    margin-bottom: rem(15);
+    position: relative;
+
+    @include md {
+      width: calc(33.33% - 11px);
+    }
+
+    @include sm {
+      width: calc(50% - 11px);
+    }
+
+    @include xs {
+      width: 100%;
+      margin-bottom: rem(20);
+    }
+
+    &:last-child {
+      @include sm {
+        margin-bottom: rem(15);
+      }
+
+      @include xs {
+        margin: 0;
+      }
+    }
+
+    &--desc {
+      padding: 0;
+      background: none;
+
+      .advantages__subtitle {
+        font-size: rem(12);
+        font-weight: 500;
+        margin-bottom: rem(10);
+        color: $za;
+        text-transform: uppercase;
+      }
+
+      .advantages__title {
+        font-size: rem(27);
+        line-height: rem(32.4);
+        font-weight: 400;
+        margin-bottom: rem(10);
+        color: $za;
+        text-transform: none;
+      }
+
+      .advantages__desc {
+        font-size: rem(14);
+        line-height: rem(17);
+        font-weight: 400;
+        color: $bc;
+      }
+    }
+
+    &--calc {
+      padding-bottom: rem(50);
+
+      .btn {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-size: rem(12);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        line-height: normal;
+        min-height: rem(50);
+      }
+    }
+  }
+
+  &__icon {
+    padding-bottom: rem(10);
+    display: flex;
+    align-items: flex-end;
+
+    i {
+      &:before {
+        margin: 0;
+      }
+
+      &.icon-fast-delivery {
+        font-size: rem(42);
+        display: flex;
+        align-items: flex-end;
+      }
+
+      &.icon-quality {
+        font-size: rem(35);
+      }
+
+      &.icon-quality-control {
+        font-size: rem(36);
+      }
+
+      &.icon-customer-support {
+        font-size: rem(26);
+      }
+
+      &.icon-shipping {
+        font-size: rem(30);
+      }
+
+      &.icon-comission {
+        font-size: rem(33);
+      }
+
+      &.icon-calculator {
+        font-size: rem(35);
+      }
+    }
+
+    img {
+      width: auto;
+    }
+  }
+
+  &__title {
+    font-size: rem(12);
+    font-weight: 500;
+    color: $za;
+    text-transform: uppercase;
+    margin-bottom: rem(10);
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: rem(14);
+    color: #8d98a6;
+    font-weight: 300;
+    line-height: rem(17);
+  }
+}

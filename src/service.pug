@@ -1,0 +1,80 @@
+extends layout/main/main
+block title
+  | services
+block main
+  .wrapper
+    .content
+      include includes/header/header
+      .breadcrumbs
+        .container
+          ul  
+            li 
+              a(href="#") Главная  
+            li Коммерческий груз
+      .services.services--inside
+        .container
+          .services__banner(style="background-image: url('assets/img/service.jpg')")
+          h6 НАШи услуги
+          .services__desc-wrap
+            .services__desc 
+              h2.title Доставка Коммерческих Грузов
+              .description
+                p Silk Road Shipping, LLC - это компания предоставляющая услуги по перевозке воздушным транспортом больших и маленьких грузов из любого города США в любой город Кыргызстана и в город Алматы, Казахстан. Компания зарегистрирована и расположена в городе Чикаго, Иллинойс (США).
+            .services__desc
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+        .services__price
+          .container
+            h3.subtitle Цены
+            h2.title Commercial Air Freight Rates
+            .description 
+              p Доставка коммерческих грузов производится по льготным тарифам
+            .services__price-wrap
+              .services__price-item
+                .description 
+                  p <b>Примерные тарифы:</b>
+
+                ul 
+                  mixin price(item)
+                    li=item
+                  +price('до 50кг - $10/кг')     
+                  +price('от 50-300 кг. - $8.00/кг')     
+                  +price('от 300-500 кг. - $7.25/кг')     
+                  +price('от 500-1000 кг. - $6.80/кг')     
+                  +price('+1000 кг. - $6.00/кг')     
+                  +price('+$75 документация')     
+              .services__price-item
+                .about-info__title $6.00/kg
+                .description
+                  p Вышеуказанные цены предусматривают доставку от порта до порта воздушным транспортом 
+
+              .services__price-item
+                .about-info__title 1,000kg+
+                .description
+                  p Таможенные пошлины и другие платежи предусмотренные таможенным кодексом Евроазиатского Экономического Союза, членом, коротого являются Кыргызстан и Казахстан, не включены и будут дополнительно взиматься по факту в зависимости от вида, количества и цены товара
+    .add-info.add-info--with-arrow.add-info--yellow(style="background-image: url('assets/img/add-info.jpg')")
+      .container
+        .add-info__wrap
+          .add-info__col
+            h2.title.title--light Рассчитать стоимость перевозки прямо сейчас!
+            svg.draw-arr(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 183.05 69.85')
+              defs
+                style.
+                  .add-info.cls-3,.add-info.cls-4{fill:none;stroke:#0dd78f;stroke-width:2px;}.add-info.cls-4{stroke-dasharray:48 8;}
+              g(id='Слой_2' data-name='Слой 2')
+                g(id='Слой_1-2' data-name='Слой 1')
+                  path.cls-3.draw-arrow.tail(d='M177,69.46l4.67-11L170.1,54.35')
+                  path.cls-4.draw-arrow(d='M.08,38.13C41.73,34.73,39.8-.29,79.79,1s60.47,75.15,101.08,58.28')
+          .add-info__col
+            a.btn(href="#") Рассчитать 
+
+
+
+
+
+
+                
+    include includes/footer/footer
+
+
+  include includes/scripts 

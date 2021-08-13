@@ -1,0 +1,163 @@
+.header {
+  &__menu {
+    background-color: #f5f5f5;
+    padding: rem(15) 0;
+
+    @include sm {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      li {
+        &.active {
+
+          a,
+          i {
+            color: $mc;
+          }
+        }
+
+        a {
+          color: $sc;
+
+          @include md {
+            font-size: rem(13);
+          }
+
+          &:hover {
+            color: $mc;
+
+            i {
+              color: $mc;
+
+            }
+          }
+
+          i {
+            color: #bebebe;
+            margin-right: rem(10);
+            transition: $tr;
+
+            @include md {
+              font-size: rem(13);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.services-menu {
+  background-color: $f5;
+
+  @include sm {
+    display: none;
+  }
+
+  &__wrap {
+    ul {
+      display: flex;
+
+      li {
+        position: relative;
+        transition: $tr;
+        flex-basis: 20%;
+        align-items: stretch;
+        display: flex;
+
+        &:last-child {
+          &:after {
+            display: none;
+          }
+        }
+
+        &:after {
+          position: absolute;
+          content: '';
+          height: rem(50);
+          width: rem(2);
+          background-color: $sc;
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%);
+        }
+
+        &.active {
+          span {
+            &:after {
+              width: rem(45);
+            }
+          }
+        }
+
+        a {
+          color: $sc;
+          font-size: rem(15);
+          display: flex;
+          align-items: center;
+          padding: rem(23) rem(10) rem(17);
+          width: calc(100% - 1px);
+          max-width: 100%;
+          box-sizing: border-box;
+          min-height: rem(70);
+          justify-content: center;
+
+          @include lg {
+            font-size: rem(14);
+          }
+
+          @include md {
+            padding: rem(10);
+          }
+
+          &:hover {
+            background-color: $mc;
+
+            span {
+              &:after {
+                width: rem(45);
+              }
+            }
+          }
+
+          i {
+            margin-right: rem(5);
+            font-size: rem(30);
+            font-weight: 700;
+          }
+
+          i,
+          svg,
+          img {
+            margin-right: rem(5);
+
+            @include md {
+              display: none;
+            }
+          }
+
+          span {
+            position: relative;
+
+            &:after {
+              position: absolute;
+              content: '';
+              height: rem(3);
+              background-color: $sc;
+              left: 50%;
+              width: 0;
+              bottom: rem(-8);
+              transform: translateX(-50%);
+              transition: $tr;
+            }
+          }
+        }
+      }
+    }
+  }
+}

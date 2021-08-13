@@ -1,0 +1,63 @@
+.personal {
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    &:first-child {
+      margin-right: rem(35);
+
+      .tab {
+        ul {
+          display: flex;
+          flex-direction: column;
+
+          li {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: rem(14);
+
+            a {
+              min-height: rem(54);
+              display: flex;
+              align-items: center;
+              background-color: #f4f6fd;
+              padding: rem(13);
+
+              &:hover {
+                background-color: $mc !important;
+                color: $bc;
+              }
+
+              &:after {
+                display: none;
+              }
+
+              svg {
+                margin-right: rem(15);
+                width: rem(30);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+            }
+
+            &.current {
+              a {
+                background-color: $mc;
+                color: $bc;
+              }
+            }
+
+            &:last-child {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &:last-child {}
+  }
+}

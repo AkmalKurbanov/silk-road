@@ -1,0 +1,471 @@
+extends layout/main/main
+block title
+  | main
+block main
+  .wrapper
+    .content
+      include includes/header/header
+      .hero(style="background-image: url('assets/img/hero.jpg')")
+        .container
+          .hero__text-block
+            h2.hero__title Доставка любого <br> товара из США
+            .hero__desc
+              p За пределами штата Иллинойс? Воспользуйтесь эксклюзивными скидками при отправке ваших грузов с FedEx на наш склад.
+              p Обеспечиваем доставку посылок и грузов практически всех габаритов к дверям адресата - Кыргызстан и Казахстан
+          a(href="#calculator").btn.btn--sm.order-js Рассчитать стоимость онлайн 
+          .schedule
+            .schedule__item
+              .schedule__location
+                i.icon-marker 
+                p Груз с 27 июня <br> прибыл в г. Бишкек, КР.
+            .schedule__item
+              .schedule__inside-block
+                i.icon-check 
+                p STATUS:
+              .schedule__date   
+                span Сегодня
+                |07.03.2021
+            .schedule__item.schedule__item--next
+              .schedule__inside-block
+                i.icon-calendar  
+                p СЛЕДУЮЩАЯ ПОСЫЛКА
+              .schedule__date
+                |06.27.2021
+  
+            .schedule__item.schedule__item--collection
+              .schedule__inside-block
+                i.icon-product 
+                p СБОР ПОСЫЛОК 
+              .schedule__date
+                |ДО 06.23.2021
+
+      .advantages 
+        .container
+          .advantages__wrap
+            .advantages__item.advantages__item--desc
+              h3.advantages__subtitle Почему доверяют нашей компании?
+              h2.advantages__title Silk Road Shipping
+              p.advantages__desc Онлайн-расчёт стоимости и заказ перевозок грузов всеми видами транспорта, включая мультимодальные «от двери до двери».
+            mixin advantages(icon, title, desc)
+             .advantages__item 
+              .advantages__icon
+                i(class=icon) 
+              h2.advantages__title=title 
+              p.advantages__desc=desc
+            +advantages('icon-fast-delivery', 'Быстрая Доставка', 'В среднем доставка включая таможенную инспекцию занимает 7 - 9 дней')
+            +advantages('icon-quality','Надежность и Безопастность', 'Гарантируем приемлемые цены, разумные сроки, надёжность и безопасность')
+            +advantages('icon-quality-control','Таможенная Очистка', 'Помощь в таможенной очистке персонального и коммерческого груза')
+            +advantages('icon-customer-support','Комплексные услуги по перевозкам', 'Никаких ограничений по весу, по размерам, и по видам товаров')
+            +advantages('icon-shipping','>5кг Доставка Бесплатная', 'Больше 5кг доставка по Бишкеку бесплатная')
+            +advantages('icon-comission','0% Комиссионых', 'Никаких коммисионных - если вы нуждаетесь в услугах выкупа товара')
+            
+            .advantages__item.advantages__item--calc
+              .advantages__icon
+                i(class="icon-calculator")
+              h2.advantages__title Рассчитайте стоимость перевозки прямо сейчас!
+              a(href="#calculator").btn.btn--sm.order-js Рассчитать стоимость 
+      
+      .calculator#calculator
+        .container
+          .calculator__wrap
+            .calculator__col
+              h3.subtitle Калькулятор
+              h2.title Рассчитайте стоимость превозки 
+              p.description Расчет стоимости перевозок – это бесплатная услуга от компании <br>
+                |<strong>“Silk Road Shipping”</strong>, с помощью которой Вы сможете определить затраты 
+                |на транспортировку груза из пункта А в пункт Б.
+              .calculator__tab-block.tab
+                ul.tabs
+                  li
+                    a(href='#').route-tab-btn МАРШРУТ
+                  li
+                    a(href='#').about-cargo-tab-btn О ГРУЗЕ
+                  li
+                    a(href='#').rate-tab-btn ТАРИФ
+                  li
+                    a(href='#').contacts-tab-btn КОНТАКТЫ
+                .tab_content
+                  form(action="" id="contacts") 
+                    .tabs_item.route-tab
+                      .input
+                        label(for="from") Откуда
+                        input(type="text" id="from" placeholder="New York, 10007, Соединенные Штаты Америки")
+                        .input__icon
+                          i.icon-marker2
+                      .input
+                        label(for="where") Куда
+                        input(type="text" id="where" placeholder="Бишкек, Чуйская область, Киргизия")
+                        .input__icon
+                          i.icon-marker2
+                      a(href="#").btn.btn-step Следующий шаг
+                      
+                    
+                    .tabs_item.about-cargo-tab
+                      .calculator__description
+                        p Объёмный вес (габаритный вес) — это расчетная величина, отражающая плотность груза. Обычно менее плотный предмет занимает больший объём пространства по сравнению с более плотным при том же весе. Объёмный вес вычисляется и сравнивается с фактической массой отправления, чтобы установить, какой из значений больше. Большее значение используется для расчёта стоимости отправления.
+                      .input.input--select
+                        label(for="package") Упаковка
+                        input.select-type(type="hidden" value="Ваш контейнер" name="Упаковка" id="package")
+                        .select
+                          .select__checked Ваш контейнер
+                          ul.select__dropdown
+                            li(data-value="Стандартный контейнер 1") Стандартный контейнер 1
+                            li(data-value="Стандартный контейнер 2") Стандартный контейнер 2
+                      .input.input--raw.input--raw1
+                        label(for="quantity") Количество
+                        input(type="text" id="quantity" placeholder="До 25" name="Количество")
+                      .input.input--raw.input--raw2
+                        label(for="weight") Вес груза
+                        input(type="text" id="weight" placeholder="Макс. вес 99 кг" name="Вес груза")
+                      p Физический вес груза - Определяется взвешиванием груза на весах
+                      .calculator__description
+                        p Стоимость пересылки зависит от физического и объемного веса и определяется за большим весом.  
+                      .input.input--raw.input--raw3
+                        label(for="length") Обьем груза
+                        input(type="text" id="length" placeholder="Длина дюйм" name="Количество")
+                      .input.input--raw.input--raw4
+                        input(type="text" id="width" placeholder="Ширина дюйм" name="Количество")
+                      .input.input--raw.input--raw5
+                        input(type="text" id="height" placeholder="Высота дюйм" name="Количество")
+                      .additional-info
+                        p.unit 1 дюйм = 2,54 см
+                        p Формула определения объёмного веса следующая:
+                        p длина (в инчах) * ширина (в инчах) * высота(инчах) / 366 = вес в кг
+                              
+                      .input.input--textarea
+                        label(for="cargo-information") Информация о грузе
+                        textarea(name="Информация о грузе" placeholder="Сообщение" id="cargo-information")
+                      a(href="#").btn.btn-step Следующий шаг                   
+                                        
+                    .tabs_item.rate-tab
+                      .calculator__description
+                        p Ориентировочное время доставки 7-9 дней
+                      .input
+                        label(for="departure-date") Дата отправки
+                        input.select-type(type="hidden" value="вторник, 22 июля 2021 г.")
+                        .select
+                          .select__checked вторник, 22 июля 2021 г.
+                          ul.select__dropdown
+                            li(data-value="1") вторник, 22 июля 2021 г.
+                            li(data-value="2") среда, 23 июля 2021 г.
+                            li(data-value="2") четверг, 24 июля 2021 г.
+                            li(data-value="2") пятница, 25 июля 2021 г.
+                      .calculator__description
+                        p Ниже указаны тарифы и сроки доставки для посылок, <br> отправленных вторник, 22 июля 2021 г.
+                        .checkbox
+                          input#nonstandardpackage(type='checkbox')
+                          label(for='nonstandardpackage') 
+                            span Отправление с нестандартной упаковкой
+                          .calculator__item-description
+                            svg(xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10' fill='none')
+                              path(d='M4.96916 3.02589C5.43173 3.02589 5.70962 3.27262 5.70962 3.68883C5.70962 4.44474 4.3603 4.65309 4.3603 5.5705C4.3603 5.81723 4.5218 6.0869 4.85352 6.0869C5.36244 6.0869 5.30088 5.70907 5.48606 5.43891C5.73254 5.07678 6.88173 4.69122 6.88173 3.68858C6.88173 2.6017 5.91049 2.14636 4.9233 2.14636C3.98297 2.14636 3.1189 2.81728 3.1189 3.57319C3.1189 3.88148 3.35043 4.04348 3.62034 4.04348C4.36777 4.04373 3.98247 3.02589 4.96916 3.02589Z' fill='black')
+                              path(d='M5.51678 7.22079C5.51678 6.87362 5.23141 6.5885 4.88449 6.5885C4.53756 6.5885 4.2522 6.87412 4.2522 7.22079C4.2522 7.56796 4.53756 7.85308 4.88449 7.85308C5.23141 7.85308 5.51678 7.56796 5.51678 7.22079Z' fill='black')
+                              path(d='M10 5C10 2.24305 7.75695 0 5 0C2.24305 0 0 2.24305 0 5C0 7.75695 2.24305 10 5 10C7.75695 10 10 7.7572 10 5ZM0.498455 5C0.498455 2.51794 2.51794 0.498455 5 0.498455C7.48206 0.498455 9.50154 2.51794 9.50154 5C9.50154 7.48206 7.48206 9.50154 5 9.50154C2.51794 9.50154 0.498455 7.48206 0.498455 5Z' fill='black')
+                            .calculator__item-description-block
+                              p Выберите этот вариант, если ваша посылка имеет нестандартную или неправильной формы упаковку.
+                                | Может взиматься дополнительная плата.
+                      .calculator__date
+                        .calculator__date-col
+                          h3 ДАТА ДОСТАВКИ
+                          p понедельник, 26 июль 2021 г.
+                        .calculator__date-col
+                          h3 ВРЕМЯ ДОСТАВКИ
+                          p 18:00
+                      .calculator__total
+                        .calculator__currency
+                          p Валюта, в которой <br> указаны тарифы, — USD
+                        a(href="#").btn 107,97 $ 
+                        .calculator__detailed-info
+                          a(href="#").detailed-info-btn
+                            i.icon-angle
+                          .detailed-info-block
+                            ul 
+                              li 
+                                span Стандартный тариф
+                                span 89,00 $
+                              li 
+                                span Российский налог на экспорт
+                                span 2,00 $
+                              li 
+                                span ТОПЛИВНЫЙ СБОР
+                                span 16,91 $
+                              li 
+                                span.total Предполагаемая итоговая сумма
+                                span 107,91 $
+                                        
+                    .tabs_item.contacts-tab
+                      .calculator__description
+                        p Мы свяжемся с Вами в ближайшее время!
+                      
+                      .input
+                        label(for="name") Ф.И.О
+                        input(type="text" id="name" placeholder="Иванов Иван")
+                      .input
+                        label(for="phone") Номер телефона
+                        input(type="text" id="phone" placeholder="+996 700 000 000")
+                      .input
+                        label(for="email") Email
+                        input(type="text" id="email" placeholder="ivanov@gmail.com")
+                      button(type="submit").btn.btn-step Заказать
+            .calculator__col
+              .calculator__tab-img1.tab-img
+                include includes/tab1
+                
+              .calculator__tab-img2.tab-img
+                include includes/tab2
+              .calculator__tab-img3.tab-img
+                include includes/tab3
+              .calculator__tab-img4.tab-img
+                include includes/tab4
+            
+          .for-customer
+            h2.title Клиентам за пределами штата Иллинойс
+              a(href="").for-customer__trigger
+                i.icon-angle
+            .for-customer__fade-block    
+              .for-customer__wrap     
+                .for-customer__col     
+                  h3.subtitle Для таких клиентов мы можем предоставить <br> почтовую этикетку от компании <b>FedEx 30-40%</b>         
+                  include includes/tab-customer
+                .for-customer__col
+                  h3.subtitle Для этого нам требуется инфо от отправителя:
+                  form(action="")
+                    .input
+                      label(for="name-illinois") Ф.И.О отправителя
+                      input(type="text" id="name-illinois" placeholder="Иванов Иван Иванович")
+                    .input
+                      label(for="address-illinois") Адрес отправителя
+                      input(type="text" id="name-illinois" placeholder="New York, 10007, Соединенные Штаты Америки")
+                    .input
+                      label(for="weight-illinois") Примерный вес
+                      input(type="text" id="name-illinois" placeholder="15 кг")
+                    .input
+                      label(for="email-illinois") Email
+                      input(type="text" id="name-illinois" placeholder="ivanov@gmail.com")
+                    .for-customer__btn-wrap
+                      button(type="submit").btn Отправить
+                      span Наш специалист <br> с Вами свяжется
+
+
+      .services 
+        .container 
+          h3.subtitle Услуги
+          h2.title Международная доставка посылок
+          p.description Быстрая и надежная доставка ваших посылок и документов.
+          .services__wrap
+            mixin services(img, title, desc) 
+              .services__item 
+                a(href="#").services__item-img
+                  img(src="assets/img/"+img+"", alt="")
+                .services__item-desc  
+                  a(href="#").services__title=title 
+                  p.p16=desc
+            +services('services1.jpg','Коммерческий груз','Доставка коммерческих грузов от 45 кг и выше производится по льготным тарифам')          
+            +services('services2.jpg','Персональный Груз','Никаких ограничений по весу, по размерам, и по видам товаров.')          
+            +services('services3.jpg','Шоппинг в интернете- магазинах США','Удобный и выгодный способ получить товары из онлайн-магазинов США')          
+      .about 
+        .container
+          .about__wrap
+            .about__col
+              .about__img 
+                img(src="assets/img/about.jpg", alt="")
+            .about__col
+              h3.subtitle Коротко о нас
+              h2.title Silk Road Shipping
+              .description
+                p Мы верим в быструю, надежную и безопасную транспортировку товаров по всему миру без ущерба для скорости и обслуживания клиентов. 
+                <br>
+                p Наша миссия - предоставлять лучшие в своем классе услуги по доставке международных грузовы..........
+              a(href="#").more Подробнее 
+                i.icon-arrow
+        .about-info
+          .container
+            .about-info__wrap
+              mixin aboutInfo(title, desc) 
+                .about-info__item
+                  .about-info__title=title
+                  .about-info__desc=desc
+              +aboutInfo('2016 г.', 'ГОД ОСНОВАНИЯ')    
+              +aboutInfo('1 000+', 'клиентов в США, Кыргызстане и Казахстане')    
+              +aboutInfo('10+', 'Собственных склада')    
+              +aboutInfo('70 000+', 'Тон груза перевезено')
+        .container 
+          .about__wrap.about__wrap--reverse
+            .about__col
+              .about__img.about__img--info
+                img(src="assets/img/advantages.jpg", alt="")
+                .about__img-inside-info
+                  h3.subtitle.subtitle--about шоппинг
+                  h2.title.title--about Заказывайте товар с нами
+                  .description
+                    p 
+                      i.icon-shopping 
+                      |Шоппинг в интернет магазинах США
+                    p Заказывайте быструю <br> доставку с любых интернет <br> магазинов США
+            .about__col
+              h3.subtitle Преимущество
+              h2.title Почему клиенты выбирают нас
+              .description
+                p Компания “Silk Road Shipping” отличается гибкостью и индивидуальным подходом. При расчете мы стараемся найти лучшее сочетание стоимости, скорости и надежности грузоперевозки.
+                <br>
+                p.description За все время работы мы собрали огромное количество партнеров и заключили прямые договора с судоходными компаниями, РЖД, собственниками автотранспорта, автопарков и складских помещений.
+          .about__advantages 
+            mixin advantages(icon, title, desc)
+              .about__advantages-item
+                .about__advantages-wrap
+                  .advantages-top  
+                    i(class="icon-"+icon+"")
+                    =title
+                  .advantages-bottom
+                    p=desc
+            +advantages('truck','Автоперевозки','Максимально безопасно и надежно, доставка по расписанию')      
+            +advantages('train','Ж/Д перевозки','Доставка фурой — лучшее сочетание скорости и цены')
+            +advantages('boing','Авиаперевозки','Максимально быстро и надежно')
+            +advantages('ship','Морские перевозки','Когда важна не скорость, а стоимость (сезонные перевозки)')
+      .etaps 
+        .container 
+          h3.subtitle ЭТАПЫ ЗАКАЗА
+          h2.title Как это работает
+          .etaps__wrap
+            mixin etaps(desc)
+              .etaps__item.p14
+                .etaps__advantages-wrap=desc
+            +etaps('Внесите параметры груза и маршрут, сразу же получите стоимость доставки.')
+            +etaps('Выберите подходящий вариант перевозки груза.')
+            +etaps('Разместите заказ онлайн, получите персональный сервис.')
+            +etaps('Следите за вашим грузом в личном кабинете, получайте уведомления о всех изменениях его статуса.')
+          .etaps__animation
+            .etaps-plane
+              img(src="assets/icons/steps-plane.svg", alt="")
+              svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 82.21 89.6' style="display: none;")
+                defs
+                  style.
+                    .cls-1{fill:#fcb408;}.cls-2{fill:#f4f6fd;}
+                g(id='Слой_2' data-name='Слой 2')
+                  g(id='Слой_1-2' data-name='Слой 1')
+                    path.cls-1(d='M76.1,39.6a38,38,0,0,0-11.5-1.8H59.8L55,28.5a3.81,3.81,0,0,0-.3-7.6H51l-.8-1.5a4.21,4.21,0,0,0,2-1,4.2,4.2,0,0,0,1.2-2.6A3.71,3.71,0,0,0,49.7,12l-3.3-.1L40.7.9a1.45,1.45,0,0,0-1-.7L35.3,0a1.22,1.22,0,0,0-1.2,1.4L39,38.2c-10.2.4-20.2,1-27.4,1.4L8,30.9a1.23,1.23,0,0,0-1.1-.7l-5.1-.1A1.16,1.16,0,0,0,.6,31.3L0,56.9a1.16,1.16,0,0,0,1.2,1.2l5.1.1a1.23,1.23,0,0,0,1.1-.7l4-8.6c7.1.8,17.1,1.8,27.3,2.6l-.7,4-1,5.6-4.8,27a1.21,1.21,0,0,0,1.2,1.4l4.3.1a1.38,1.38,0,0,0,1.1-.6L45,78.2l3.3.1a3.75,3.75,0,0,0,2.8-6.4,4.53,4.53,0,0,0-1.9-1.1l.8-1.5,3.6.1a3.71,3.71,0,0,0,3.8-3.7,3.87,3.87,0,0,0-3.2-3.8l5.2-9.1c1.7.1,3.3.1,4.8.1a39.88,39.88,0,0,0,11.6-1.3c5.2-1.5,6.4-4.1,6.4-6C82.3,44,81.2,41.4,76.1,39.6ZM54.6,23.4a1.35,1.35,0,0,1,1.3,1.4,1.29,1.29,0,0,1-1.4,1.3h-.8l-1.4-2.8Zm-5-9.1a1.34,1.34,0,0,1,1.3,1.4A1.29,1.29,0,0,1,49.5,17H49l-1.4-2.8ZM36.7,2.4h2.2L57,37.8c-4.9,0-10.3.2-15.6.3ZM2.9,32.5l3.1.1,3,7.2c-2.8.2-5,.3-6.3.4ZM5.6,55.8l-3.1-.1L2.6,48c1.3.2,3.5.4,6.3.7ZM49.7,74.7A1.29,1.29,0,0,1,48.3,76h-2l1.5-2.7h.5A1.37,1.37,0,0,1,49.7,74.7ZM55,65.8a1.34,1.34,0,0,1-1.4,1.3H51.3l1.5-2.7h.8A1.43,1.43,0,0,1,55,65.8ZM37.1,87.3l-2.2-.1,4.6-26,1-5.8.7-3.7c5.3.4,10.7.8,15.6,1Zm38-37.8a38.6,38.6,0,0,1-10.9,1.2c-20.7-.5-55-4.3-61.6-5.1l.1-2.9c6.6-.5,41.1-2.8,61.7-2.4a40.39,40.39,0,0,1,10.8,1.6c2.1.7,4.6,2,4.5,3.9C79.8,47.8,77.3,48.9,75.1,49.5Z')
+                    path.cls-2(d='M51,15.7A1.29,1.29,0,0,1,49.6,17h-.5l-1.4-2.8h2A1.51,1.51,0,0,1,51,15.7Z')
+                    path.cls-2(d='M55.9,24.8a1.29,1.29,0,0,1-1.4,1.3h-.8l-1.4-2.8h2.3A1.51,1.51,0,0,1,55.9,24.8Z')
+                    path.cls-2(d='M49.7,74.7A1.29,1.29,0,0,1,48.3,76h-2l1.5-2.7h.5A1.37,1.37,0,0,1,49.7,74.7Z')
+                    path.cls-2(d='M55,65.8a1.34,1.34,0,0,1-1.4,1.3H51.3l1.5-2.7h.8A1.43,1.43,0,0,1,55,65.8Z')
+                    path.cls-2(d='M56.7,52.8,37.1,87.3l-2.2-.1,4.6-26,1-5.8.7-3.7C46.5,52.2,51.8,52.6,56.7,52.8Z')
+                    path.cls-2(d='M8.9,48.7,5.6,55.8l-3.1-.1L2.6,48C3.9,48.2,6.1,48.4,8.9,48.7Z')
+                    path.cls-2(d='M9.1,39.8c-2.8.2-5,.3-6.3.4L3,32.5l3.1.1Z')
+                    path.cls-2(d='M57,37.8c-4.9,0-10.3.2-15.6.3L36.7,2.4h2.2Z')
+                    path.cls-2(d='M79.8,45.8c-.1,1.9-2.6,3.1-4.7,3.7a38.6,38.6,0,0,1-10.9,1.2c-20.7-.5-55-4.3-61.6-5.1l.1-2.9c6.6-.5,41.1-2.8,61.7-2.4a40.39,40.39,0,0,1,10.8,1.6C77.4,42.6,79.9,43.9,79.8,45.8Z')
+                    path.cls-1.smoke5(d='M27.6,87l-14.5-.3a1.2,1.2,0,0,0-1.2,1.1,1.18,1.18,0,0,0,1.2,1.3l14.5.3a1.16,1.16,0,0,0,1.2-1.2A1.29,1.29,0,0,0,27.6,87Z')
+                    path.cls-1.smoke6(d='M27.8,79.8l-9.1-.2a1.2,1.2,0,0,0-1.2,1.1A1.18,1.18,0,0,0,18.7,82l9.1.2a1.2,1.2,0,0,0,0-2.4Z')
+                    path.cls-1.smoke4(d='M29.8,72.6l-6.4-.1a1.2,1.2,0,0,0-1.2,1.1,1.18,1.18,0,0,0,1.2,1.3l6.4.1A1.16,1.16,0,0,0,31,73.8,1.22,1.22,0,0,0,29.8,72.6Z')
+                    path.cls-1.smoke2(d='M14.5,2.5,29,2.8a1.16,1.16,0,0,0,1.2-1.2A1.16,1.16,0,0,0,29,.4L14.6.1a1.16,1.16,0,0,0-1.2,1.2A1.13,1.13,0,0,0,14.5,2.5Z')
+                    path.cls-1.smoke3(d='M30.1,8.9a1.16,1.16,0,0,0-1.2-1.2l-9.1-.2a1.2,1.2,0,0,0-1.2,1.1,1.18,1.18,0,0,0,1.2,1.3l9.1.2A1.29,1.29,0,0,0,30.1,8.9Z')
+                    path.cls-1.smoke1(d='M23,16a1.16,1.16,0,0,0,1.2,1.2l6.4.1a1.2,1.2,0,0,0,0-2.4l-6.4-.1A1.22,1.22,0,0,0,23,16Z')
+              
+
+            .etaps__animation-wrap  
+              .etaps__animation-step
+                .etaps__dash
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                .point
+              .etaps__animation-step
+                .etaps__dash
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                .point
+              .etaps__animation-step
+                .etaps__dash
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                .point
+              .etaps__animation-step
+                .etaps__dash
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                  i 
+                .point.point--fade-out
+                a(href="#calculator").btn.btn--sm.try.order-js
+                  i.icon-check
+                  | ПОПРОБОВАТЬ 
+
+      .add-info.add-info--with-arrow(style="background-image: url('assets/img/add-info.jpg')") 
+        .container
+          .add-info__wrap
+            .add-info__col
+              h3.subtitle.subtitle--light Silk Road shipping
+              h2.title.title--light Если в вашем регионе нет представителя
+              .description.description--light
+                p Если вы находитесь за пределами штата Иллиноис <br> или Покупая товары в американских интернет-магазинах и <br> аукционах, адресуйте их на наши склады:
+              svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 183.05 69.85')
+                defs
+                  style.
+                    .add-info.cls-3,.add-info.cls-4{fill:none;stroke:#0dd78f;stroke-width:2px;}.add-info.cls-4{stroke-dasharray:48 8;}
+                g(id='Слой_2' data-name='Слой 2')
+                  g(id='Слой_1-2' data-name='Слой 1')
+                    path.cls-3.draw-arrow.tail(d='M177,69.46l4.67-11L170.1,54.35')
+                    path.cls-4.draw-arrow(d='M.08,38.13C41.73,34.73,39.8-.29,79.79,1s60.47,75.15,101.08,58.28')
+                  
+            .add-info__col
+              .add-info__address 
+                p Адресуйте на СВОЕ ИМЯ 
+                p Address: 1304 Derby Lane
+                p City: Mundelein
+                p State: IL
+                p Zip Code: 60060
+
+      .reviews
+        .container
+          .reviews__wrap
+            .reviews__col
+              h3.subtitle отзывы
+              h2.title Отзывы клиентов
+              .description 
+                p В данном разделе собраны реальные отзывы от клиентов и партнеров <br> компании Silk Road Shipping. 
+            .reviews__col
+              p Вы так же можете 
+                a(href="#") оставить свой отзыв 
+          .reviews__slider
+            .swiper-container.reviews-js
+              .swiper-wrapper
+                mixin review(icon, name, loc, date, text)
+                  .swiper-slide
+                    .reviews__top
+                      .reviews__user
+                        .reviews__icon
+                          i(class="icon-"+icon+"")
+                        .reviews__name
+                          span=name
+                      .reviews__info
+                        .reviews__location=loc 
+                        .reviews__date=date
+                    .reviews__text
+                      p=text     
+                +review('profile', 'Артем', 'Бишкек', '20.02.2021', 'Необходимо было найти и доставить контейнеры в разные города. Silk Road Shipping справилась с задачей лучше всяких похвал. Огромное спасибо всей команде,  за профессиональный и качественный подход при работе с клиентами.')
+                +review('company', 'ООО «ЛОГИСТИКА»', 'Астана', '21.01.2021', 'Благодарим компанию "Silk Road Shipping",  за добросовестный труд и своевременное выполнение обязательств по оплате.  В надежде на дальнейшее сотрудничество.')
+                +review('profile', 'Артем', 'Бишкек', '20.02.2021', 'Необходимо было найти и доставить контейнеры в разные города. Silk Road Shipping справилась с задачей лучше всяких похвал. Огромное спасибо всей команде,  за профессиональный и качественный подход при работе с клиентами.')
+                +review('company', 'ООО «ЛОГИСТИКА»', 'Астана', '21.01.2021', 'Благодарим компанию "Silk Road Shipping",  за добросовестный труд и своевременное выполнение обязательств по оплате.  В надежде на дальнейшее сотрудничество.')
+                +review('profile', 'Артем', 'Бишкек', '20.02.2021', 'Необходимо было найти и доставить контейнеры в разные города. Silk Road Shipping справилась с задачей лучше всяких похвал. Огромное спасибо всей команде,  за профессиональный и качественный подход при работе с клиентами.')
+                +review('company', 'ООО «ЛОГИСТИКА»', 'Астана', '21.01.2021', 'Благодарим компанию "Silk Road Shipping",  за добросовестный труд и своевременное выполнение обязательств по оплате.  В надежде на дальнейшее сотрудничество.')
+              .swiper-pagination  
+    include includes/footer/footer
+
+
+  include includes/scripts 

@@ -1,0 +1,145 @@
+.add-info {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  position: relative;
+  padding: rem(25) 0;
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba($bc, .68);
+  }
+
+  &__address {
+    border: dashed rem(1) $wc;
+    max-width: rem(255);
+    width: 100%;
+    padding: rem(12) rem(25);
+
+    * {
+      color: $wc;
+      line-height: rem(17);
+      font-weight: 300;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include md {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__col {
+    @include md {
+      width: 100%;
+    }
+
+    &:first-child {
+      position: relative;
+      width: 55%;
+
+      @include md {
+        width: 100%;
+      }
+
+      svg {
+        position: absolute;
+        left: 100%;
+        bottom: 0;
+      }
+    }
+
+    &:last-child {
+      width: 40%;
+      display: flex;
+      justify-content: flex-end;
+
+      @include md {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: rem(20);
+      }
+    }
+
+    .btn {
+      display: inline-flex;
+      max-width: rem(250);
+
+      @include xs {
+        margin: auto;
+      }
+    }
+  }
+
+
+  svg {
+    width: rem(200);
+    height: rem(80);
+    margin: 0 auto;
+
+    @include lg {
+      width: rem(150);
+    }
+
+    @include md {
+      display: none;
+    }
+
+    &.draw-arr {
+      .draw-arrow {
+        stroke-width: 2;
+        stroke: #0DD78F;
+        fill: none;
+        stroke-dasharray: 400;
+        stroke-dashoffset: 400;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+        animation-name: draw;
+
+        &.tail {
+          animation-delay: 0.9s;
+        }
+      }
+    }
+  }
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  &--contacts {
+    .add-info__address {
+      max-width: rem(400);
+
+      p {
+        font-size: rem(16);
+        margin-bottom: rem(10);
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &--yellow {
+    svg {
+      path {
+        stroke: #fcb408!important;
+      }
+    }
+  }
+}

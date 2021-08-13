@@ -1,0 +1,45 @@
+.McButton {
+  position: fixed;
+  top: rem(15);
+  right: rem(15);
+  width: rem(30);
+  height: rem(18);
+  cursor: pointer;
+  z-index: 99999;
+  display: none;
+
+  @include sm {
+    display: block;
+  }
+
+  b {
+    position: absolute;
+    left: 0;
+    width: rem(30);
+    height: rem(3);
+    background-color: $mc;
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+    }
+
+    &:nth-child(3) {
+      top: 100%;
+    }
+  }
+}
+
+.hamburger {
+  &.--open {
+    right: rem(330);
+
+    @media (max-width: 400px) {
+      right: rem(10);
+      z-index: 3;
+    }
+  }
+}

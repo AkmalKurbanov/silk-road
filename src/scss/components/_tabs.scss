@@ -1,0 +1,136 @@
+.tab {
+  margin-top: rem(35);
+
+  .tabs {
+    display: flex;
+    margin-bottom: rem(30);
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include xs {
+      width: 100%;
+      max-width: rem(450);
+      overflow-x: scroll;
+    }
+
+    li {
+      margin-right: rem(35);
+
+      @include xs {
+        margin-right: rem(25);
+      }
+
+      &.disabled-tab {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      &:first-child {
+        opacity: 1;
+        pointer-events: inherit;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        position: relative;
+        font-size: rem(14);
+        line-height: rem(16.8);
+        padding-bottom: rem(2);
+        text-transform: uppercase;
+        color: $bc;
+        white-space: nowrap;
+
+        &:hover {
+          color: $mc;
+
+          &:after {
+            width: rem(45);
+          }
+        }
+
+        &:after {
+          position: absolute;
+          content: '';
+          width: 0;
+          height: rem(2);
+          background-color: $mc;
+          text-transform: uppercase;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 0;
+          transition: $tr;
+        }
+      }
+
+      &.current a {
+        color: $mc;
+        pointer-events: none;
+
+        &:after {
+          width: rem(45);
+        }
+      }
+    }
+  }
+
+  .tabs_item {
+    display: none;
+
+    &:first-child {
+      display: block;
+    }
+
+    .input {
+      max-width: rem(250);
+      width: 100%;
+
+      &.disabled-input {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      &:first-child {
+        opacity: 1;
+        pointer-events: inherit;
+      }
+    }
+  }
+
+  .route-tab {
+    .input {
+      max-width: rem(437);
+
+      input {
+        padding-right: rem(40);
+      }
+    }
+  }
+
+  .about-cargo-tab {
+    .input {
+      max-width: rem(390);
+    }
+
+    .input--select {
+      max-width: rem(250);
+    }
+  }
+
+  .rate-tab {
+    .input {
+      max-width: rem(330);
+    }
+  }
+
+  .contacts-tab {
+    .btn {
+      max-width: rem(250);
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,156 @@
+.header {
+  &__top {
+    background-color: $sc;
+    padding: rem(12) 0;
+
+    @include sm {
+      display: none;
+    }
+  }
+
+  &__top-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .locale {
+    display: flex;
+
+    a {
+      color: $wc;
+      position: relative;
+      padding-right: rem(5);
+
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+
+      &:after {
+        position: absolute;
+        content: '|';
+        right: 0;
+        color: $wc;
+      }
+
+      &:hover {
+        color: $mc;
+      }
+
+      &.active {
+        color: $mc;
+      }
+    }
+  }
+
+  &__middle {
+    padding: rem(25) 0;
+  }
+
+  &__middle-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include md {
+      flex-direction: column;
+    }
+
+    .offices {
+      span {
+        font-size: rem(12);
+        color: $be;
+        margin-left: rem(4);
+        margin-bottom: rem(2);
+        font-weight: 300;
+      }
+
+      ul {
+        li {
+          display: inline-block;
+          position: relative;
+          padding-right: rem(58);
+          margin-right: rem(31);
+          font-size: rem(30);
+          
+          @include xs {
+            font-size: rem(16);
+            padding-right: rem(38);
+            margin-right: rem(11);
+          }
+
+          &:last-child {
+            margin: 0;
+            padding: 0;
+
+            &:after {
+              display: none;
+            }
+          }
+
+          &:after {
+            position: absolute;
+            content: '';
+            font-family: icon;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            font-size: rem(16);
+          }
+        }
+      }
+    }
+  }
+
+  &__middle-item {
+    @include md {
+      margin-bottom: rem(20);
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .social {
+    @include md {
+      background-color: $sc;
+      position: fixed;
+      left: 0;
+      top: rem(20);
+      padding: rem(5);
+      z-index: 9;
+    }
+
+    ul {
+      @include md {
+        flex-direction: column;
+      }
+
+      li {
+        @include md {
+          margin-right: 0;
+          margin-bottom: rem(10);
+        }
+
+        a {
+          @include md {
+            width: rem(20);
+            height: rem(20);
+          }
+
+          i {
+            @include md {
+              font-size: rem(11);
+            }
+          }
+        }
+      }
+    }
+
+
+
+  }
+}

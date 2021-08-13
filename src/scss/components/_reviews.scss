@@ -1,0 +1,237 @@
+.reviews {
+  padding: rem(35) 0;
+  background-color: #F4F6FD;
+
+  &__wrap {
+    display: flex;
+    align-items: flex-end;
+
+    @include md {
+      flex-direction: column;
+    }
+  }
+
+  &__col {
+    width: 50%;
+
+    @include md {
+      width: 100%;
+    }
+
+    &:last-child {
+      display: flex;
+      justify-content: flex-end;
+
+      @include md {
+        justify-content: flex-start;
+        margin-top: rem(20);
+      }
+
+      a {
+        margin-left: rem(5);
+        position: relative;
+        color: $sc;
+
+        &:hover {
+          color: $mc;
+
+          &:after {
+            background-color: $mc;
+          }
+        }
+
+        &:after {
+          position: absolute;
+          content: '';
+          height: rem(1);
+          width: 100%;
+          background-color: $bc;
+          left: 0;
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__slider {
+    margin-top: rem(25);
+    padding: 0 rem(10);
+
+    @include md {
+      padding: 0;
+    }
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    align-items: stretch !important;
+  }
+
+  .swiper-slide {
+    background-color: $wc;
+    padding: rem(17) rem(19);
+    min-height: rem(150);
+  }
+
+  .swiper-container {
+    .swiper-pagination {
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: rem(20);
+
+      .swiper-pagination-bullet {
+        width: rem(10);
+        height: rem(10);
+        border-radius: 100%;
+        display: block;
+        background: rgba(81, 81, 81, 0.32);
+        margin-right: rem(10);
+        cursor: pointer;
+        transition: $tr;
+
+        &:hover {
+          background-color: $mc;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &.swiper-pagination-bullet-active {
+          background-color: $mc;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    margin-right: rem(13);
+
+    i {
+      font-size: rem(21);
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: rem(15);
+
+    @include xs {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+
+    @include xs {
+      margin-bottom: rem(10);
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: rem(19);
+    font-weight: 500;
+    line-height: rem(21.6);
+    padding-top: rem(3);
+
+    @include lg {
+      font-size: rem(16);
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+
+    * {
+      font-weight: 300;
+
+      @include lg {
+        font-size: rem(13);
+      }
+    }
+  }
+
+  &__location {
+    margin-right: rem(15);
+  }
+
+  &__text {
+    p {
+      font-size: rem(14.2);
+
+      @include lg {
+        font-size: rem(13);
+      }
+    }
+  }
+
+  &__wrap-item {
+    margin-top: rem(40);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    background-color: $wc;
+    padding: rem(17) rem(19);
+    max-width: rem(542);
+    min-height: rem(150);
+    margin-bottom: rem(40);
+
+    @include lg {
+      max-width: rem(455);
+      margin-bottom: rem(25);
+    }
+
+    @include md {
+      max-width: rem(335);
+      margin-bottom: rem(20);
+    }
+
+    @include sm {
+      max-width: 100%;
+    }
+
+    &:last-child {
+      @include sm {
+        margin: 0;
+      }
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    p {
+      color: $sh1;
+      font-weight: 300;
+
+      a {
+        color: $sh1;
+        text-decoration: underline;
+
+        &:hover {
+          color: $mc;
+        }
+      }
+    }
+  }
+
+  .description {
+    position: relative;
+  }
+}

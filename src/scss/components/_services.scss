@@ -1,0 +1,336 @@
+.services {
+  background-color: #f4f6fd;
+  padding: rem(55) 0 rem(70);
+
+  @include lg {
+    padding: rem(50) 0 rem(65);
+  }
+
+  @include md {
+    padding: rem(40) 0 rem(55);
+  }
+
+  @include sm {
+    padding: rem(30) 0 rem(40);
+  }
+
+  @include xs {
+    padding: rem(25) 0 rem(30);
+  }
+
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: rem(30);
+  }
+
+  &__item {
+    width: calc(33.33% - 28px);
+    background-color: $wc;
+
+    @include lg {
+      width: calc(33.33% - 18px);
+    }
+
+    @include md {
+      width: calc(33.33% - 9px);
+    }
+
+    @include sm {
+      max-width: rem(320);
+      width: 100%;
+      margin: auto;
+      margin-bottom: rem(20);
+    }
+
+    &:last-child {
+      @include sm {
+        margin-bottom: 0;
+      }
+    }
+
+    img {
+      filter: drop-shadow(0px 4px 40px rgba(0, 0, 0, 0.3));
+    }
+  }
+
+  &__item-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__item-desc {
+    padding: rem(15);
+
+    p {
+      color: $sh1;
+      font-weight: 300;
+      line-height: rem(19.2);
+
+      @include md {
+        font-size: rem(14);
+        line-height: normal;
+      }
+    }
+  }
+
+  &__title {
+    color: $bc;
+    font-size: rem(18);
+    margin-bottom: rem(27);
+    display: block;
+    text-align: center;
+
+    @include md {
+      font-size: rem(15);
+      margin-bottom: rem(15);
+    }
+
+    &:hover {
+      color: $mc;
+    }
+  }
+
+  &--inside {
+    background: none;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    h6 {
+      text-transform: uppercase;
+      margin-bottom: rem(23);
+      font-size: rem(11);
+    }
+  }
+
+  &__wrap-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  &__service {
+    margin-bottom: rem(20);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include xs {
+      max-width: 100% !important;
+    }
+
+    &:nth-child(1n) {
+      max-width: 57.5%;
+      width: 100%;
+
+      @include sm {
+        max-width: 48%;
+      }
+    }
+
+    &:nth-child(2n) {
+      max-width: 40%;
+      width: 100%;
+
+      @include sm {
+        max-width: 48%;
+      }
+    }
+
+    &:nth-child(3n) {
+      max-width: 100%;
+      width: 100%;
+    }
+
+
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      min-height: rem(360);
+
+      @include lg {
+        min-height: rem(320);
+      }
+
+      @include md {
+        min-height: rem(250);
+      }
+
+      @include sm {
+        min-height: rem(210);
+      }
+
+      &:hover {
+        &:after {
+          animation: shine .8s;
+        }
+      }
+
+      &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba($bc, .6);
+        transition: $tr;
+      }
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: -75%;
+        z-index: 2;
+        display: block;
+        content: "";
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, hsla(0, 0%, 100%, 0) 0, hsla(0, 0%, 100%, .5));
+        transform: skewX(-25deg);
+      }
+
+      @keyframes shine {
+        to {
+          left: 125%
+        }
+      }
+    }
+
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: $wc;
+      font-size: rem(27);
+      line-height: rem(32);
+
+      @include lg {
+        font-size: rem(24);
+        line-height: normal;
+      }
+
+      @include md {
+        font-size: rem(20);
+      }
+
+      @include sm {
+        font-size: rem(16);
+      }
+
+      @include xs {
+        font-size: rem(14);
+      }
+    }
+  }
+
+  &__banner {
+    min-height: rem(228);
+    margin-bottom: rem(27);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__desc-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: rem(40);
+  }
+
+  &__desc {
+    max-width: calc(45% - 27px);
+
+    @include lg {
+      max-width: 48%;
+    }
+
+    @include sm {
+      max-width: 100%;
+      margin-bottom: rem(25);
+    }
+
+    &:last-child {
+      @include sm {
+        margin: 0;
+      }
+    }
+
+    p {
+      color: $sh1;
+      font-size: rem(15);
+      font-weight: 300;
+      line-height: rem(19.2);
+    }
+  }
+
+  &__price {
+    padding: rem(30) 0;
+    background-color: #F4F6FD;
+  }
+
+  &__price-wrap {
+    display: flex;
+    margin-top: rem(30);
+    justify-content: space-between;
+
+    @include sm {
+      flex-direction: column;
+    }
+  }
+
+  &__price-item {
+    width: 33%;
+
+    @include lg {
+      width: 32%;
+    }
+
+    @include sm {
+      width: 100%;
+      margin-bottom: rem(25);
+    }
+
+    &:last-child {
+      @include sm {
+        margin: 0;
+      }
+    }
+
+    ul {
+      margin-top: rem(15);
+
+      li {
+        font-weight: 300;
+        color: $sh1;
+        position: relative;
+        padding-left: rem(18);
+        margin-bottom: rem(3);
+
+        @include md {
+          font-size: rem(14);
+        }
+
+        &:before {
+          position: absolute;
+          content: '';
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          width: rem(9);
+          height: rem(9);
+          border-radius: 100%;
+          background-color: $mc;
+        }
+      }
+    }
+  }
+  
+}

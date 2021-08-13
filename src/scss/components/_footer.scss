@@ -1,0 +1,145 @@
+.footer {
+  flex: 0 0 auto;
+  background-color: $sc;
+  padding-top: rem(24);
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+
+    @include md {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__col {
+    width: 24%;
+    padding-top: rem(45);
+
+    @include md {
+      width: 49%;
+      padding-top: rem(20);
+    }
+
+    @include xs {
+      width: 100%;
+      padding-top: rem(10);
+    }
+
+    &:first-child {
+      padding-top: 0;
+
+      .footer__menu {
+        margin-top: rem(20);
+      }
+    }
+
+    .title {
+      color: $wc;
+      font-size: rem(16);
+    }
+
+  }
+
+  &__menu {
+    ul {
+      li {
+        margin-bottom: rem(20);
+
+        a {
+          color: rgba($wc, 0.5);
+          font-size: rem(14);
+
+          &:hover {
+            color: $mc;
+          }
+        }
+      }
+    }
+  }
+
+  .info {
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__item {
+      margin-bottom: rem(23);
+      width: 100%;
+      align-items: flex-start;
+      margin-right: 0;
+
+      i {
+        &:before {
+          margin: 0;
+        }
+
+        &.icon-marker {
+          font-size: rem(25);
+          margin-left: rem(-4);
+        }
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    border-top: rem(1) solid $mc;
+    padding: rem(12) 0;
+    margin-top: rem(20);
+
+    @include md {
+      flex-direction: column;
+    }
+  }
+
+  &__bottom-col {
+    width: 40%;
+    display: flex;
+    align-items: center;
+
+    @include md {
+      width: 100%;
+      justify-content: center;
+    }
+
+    p {
+      color: rgba($wc, .5);
+
+      @include md {
+        text-align: center;
+      }
+    }
+
+    &:nth-child(2) {
+      width: 20%;
+      align-items: center;
+      justify-content: center;
+
+      @include md {
+        width: 100%;
+        margin: rem(20) 0;
+      }
+    }
+
+    &:last-child {
+      display: flex;
+      justify-content: flex-end;
+
+      @include md {
+        justify-content: center;
+      }
+
+      p {
+        text-align: right;
+
+        @include md {
+          text-align: center;
+        }
+      }
+    }
+  }
+}

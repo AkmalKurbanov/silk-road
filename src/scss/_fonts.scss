@@ -1,0 +1,8 @@
+@import "mixins/fontface";
+
+@include font-face("st", "../assets/fonts/stlight", 200);
+@include font-face("st", "../assets/fonts/stbook", 300);
+@include font-face("st", "../assets/fonts/stregular", 400);
+@include font-face("st", "../assets/fonts/stmedium", 500);
+@include font-face("st", "../assets/fonts/stbold", 700);
+@include font-face("pangolin", "../assets/fonts/pangolin", 400);

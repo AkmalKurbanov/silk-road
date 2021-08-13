@@ -1,0 +1,51 @@
+// Сторонние библиотеки 
+// @import "../js/libs/--/--/";
+
+//---------------------------------------------
+
+// css файлы библиотек/плагинов
+// @import "../../node_modules/--/--/";
+
+@import "../../node_modules/normalize.css/normalize.css";
+@import "../../node_modules/swiper/swiper.min.css";
+//---------------------------------------------
+
+// подключение сгенерированных иконок(fontello),
+// FontAwesome
+
+@import "../assets/icons/fontello/css/icon.css";
+
+//---------------------------------------------
+
+// подключение css файлов
+
+@import "fonts";
+@import "variables";
+@import "mixins/media";
+
+
+//---------------------------------------------
+
+
+//---------------------------------------------
+
+// Компоненты
+
+@import "components/base";
+@import "components/header";
+@import "components/hamburger";
+@import "components/mobile-menu";
+@import "components/menu";
+@import "components/hero";
+@import "components/advantages";
+@import "components/calculator";
+@import "components/tabs";
+@import "components/services";
+@import "components/about";
+@import "components/etaps";
+@import "components/add-info";
+@import "components/reviews";
+@import "components/contacts";
+@import "components/faq";
+@import "components/personal";
+@import "components/footer";

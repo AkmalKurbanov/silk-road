@@ -1,0 +1,34 @@
+extends layout/main/main
+block title
+  | service
+block main
+  .wrapper
+    .content
+      include includes/header/header
+      .breadcrumbs
+        .container
+          ul  
+            li 
+              a(href="#") Главная  
+            li Услуги
+      .services.services--inside
+        .container
+          h6 НАШи услуги
+          .services__wrap-item          
+            mixin service(title, img)
+              .services__service(style="background-image: url('assets/img/"+ img +"')")
+                a(href="#")
+                  span=title
+            +service('Коммерческий груз', 'services1.2.jpg')
+            +service('Шоппинг в интернете- магазинах США', 'services2.2.jpg')
+            +service('Персональный  груз', 'services3.2.jpg')
+     
+
+
+
+
+                
+    include includes/footer/footer
+
+
+  include includes/scripts 

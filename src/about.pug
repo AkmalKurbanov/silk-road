@@ -1,0 +1,57 @@
+extends layout/main/main
+block title
+  | about
+block main
+  .wrapper
+    .content
+      include includes/header/header
+
+      .about.about--inside 
+        .container
+          .about__wrap.about__wrap--reverse
+            .about__col
+              .about__img 
+                img(src="assets/img/about.jpg", alt="")
+            .about__col
+              h3.subtitle НАША КОМПАНИЯ
+              h2.title Обслуживание в Центральной Азии с 2016
+              .description
+                p Авиаперевозки коммерческих и частных грузов из США в Кыргызстан и Казахстан. Никаких ограничений по весу, по размерам, и по виду товаров. Полный спектр логистических услуг. Работаем по методу от двери до двери. Гарантируем приемлемые цены, разумные сроки, надёжность и безопасность.
+              
+        .about-info.about-info--about
+          .container
+            .about-info__wrap
+              mixin aboutInfo(title, desc) 
+                .about-info__item
+                  .about-info__title=title
+                  .about-info__desc=desc
+              +aboutInfo('2016 г.', 'ГОД ОСНОВАНИЯ')    
+              +aboutInfo('1 000+', 'клиентов в США, Кыргызстане и Казахстане')    
+              +aboutInfo('10+', 'Собственных склада')    
+              +aboutInfo('70 000+', 'Тон груза перевезено')
+        .container 
+          .about__wrap
+            .about__col
+              .about__img
+                img(src="assets/img/about1.jpg", alt="")
+            .about__col
+              h2.title Мы - ведущие эксперты в области транспорта в Среднюю Азию
+              .description
+                p Мы верим в быструю, надежную и безопасную транспортировку товаров по всему миру без ущерба для скорости и обслуживания клиентов.
+                <br>
+                p Наша миссия - предоставлять лучшие в своем классе услуги по доставке международных грузовых авиаперевозок по самым конкурентоспособным ценам на рынке.
+        .about__add-info
+          .container.about__add-info-wrap
+            .about__col
+              h2.title Полная сеть курьеров с доступом во все регионы Кыргызстана и расширение присутствия в Казахстане.
+              .description
+                p Silk Road Shipping доставляет любую посылку весом более 5 кг - от двери до двери - это обеспечивает скорость, безопасность и первоклассное обслуживание клиентов.
+            .about__col
+              .about__img
+                img(src="assets/img/about2.jpg", alt="")
+        
+    
+    include includes/footer/footer
+
+
+  include includes/scripts 
