@@ -1,63 +1,318 @@
 .personal {
   &__wrap {
     display: flex;
-    justify-content: space-between;
+
+    @include xs {
+      flex-direction: column;
+      margin-bottom: rem(15);
+    }
   }
 
   &__col {
+
     &:first-child {
       margin-right: rem(35);
 
-      .tab {
-        ul {
-          display: flex;
-          flex-direction: column;
+      @include xs {
+        margin: 0;
+      }
 
-          li {
-            width: 100%;
-            margin-right: 0;
-            margin-bottom: rem(14);
+      .tabs {
+        max-width: 100% !important;
 
-            a {
-              min-height: rem(54);
+        @include xs {
+          margin-bottom: rem(15);
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        @include xs {
+          width: 100%;
+        }
+
+        li {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: rem(14);
+
+          a {
+            min-height: rem(54);
+            display: flex !important;
+            align-items: center;
+            background-color: #f4f6fd;
+            padding: rem(13);
+
+            @include lg {
+              padding: rem(7);
+            }
+
+            &:hover {
+              background-color: $mc !important;
+              color: $bc;
+            }
+
+            &:after {
+              display: none;
+            }
+
+            svg {
+              margin-right: rem(15);
+              width: rem(30);
               display: flex;
               align-items: center;
-              background-color: #f4f6fd;
-              padding: rem(13);
+              justify-content: center;
 
-              &:hover {
-                background-color: $mc !important;
-                color: $bc;
-              }
-
-              &:after {
-                display: none;
-              }
-
-              svg {
-                margin-right: rem(15);
-                width: rem(30);
-                display: flex;
-                align-items: center;
-                justify-content: center;
+              @include lg {
+                width: rem(20);
+                margin-right: rem(5);
               }
             }
 
-            &.current {
-              a {
-                background-color: $mc;
-                color: $bc;
-              }
+            span {
+              font-size: rem(10);
             }
+          }
 
-            &:last-child {
-              margin: 0;
+          &.current {
+            a {
+              background-color: $mc;
+              color: $bc;
             }
+          }
+
+          &:last-child {
+            margin: 0;
           }
         }
       }
     }
 
-    &:last-child {}
+    &:last-child {
+      width: 100%;
+
+      .tabs_item {
+        ul {
+          li {
+            color: $za;
+            font-weight: 300;
+            margin-bottom: rem(8);
+
+            @include lg {
+              font-size: rem(13);
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+
+    @include sm {
+      flex-direction: column;
+    }
+
+    h2 {
+      margin-bottom: rem(10);
+      font-weight: 400;
+      color: $za;
+      font-size: rem(14);
+    }
+
+    &--history {
+      background-color: #f4f6fd;
+      padding: rem(25);
+      margin-bottom: rem(15);
+
+      ul {
+        li {
+          font-size: rem(14);
+
+          @include lg {
+            font-size: rem(13);
+          }
+
+          span {
+            font-size: rem(16);
+            margin-left: rem(40);
+            text-transform: uppercase;
+
+            @include lg {
+              margin-left: rem(20);
+              font-size: rem(13);
+            }
+          }
+        }
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  &__info-total {
+    margin-top: rem(40);
+  }
+
+  &__tracking {
+    position: relative;
+    min-height: rem(135);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__tracking-date {
+    margin-bottom: rem(20);
+
+    @include sm {
+      margin-bottom: rem(15);
+    }
+
+    p {
+      font-size: rem(14);
+      font-weight: 300;
+      color: $za;
+
+      @include sm {
+        font-size: rem(12);
+      }
+    }
+  }
+
+  &__tracking-status {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    left: 50%;
+    transform: translateX(-50%);
+
+    span {
+      font-size: rem(14);
+      font-weight: 300;
+      color: $za;
+
+      @include sm {
+        font-size: rem(11);
+      }
+    }
+  }
+
+  &__tracking-plane {
+    max-width: rem(55);
+    width: 100%;
+    margin: rem(15) 0;
+
+    @include sm {
+      max-width: rem(40);
+      margin: rem(5) 0;
+    }
+  }
+
+  &__tracking-dash {
+    display: flex;
+    justify-content: space-between;
+
+    i {
+      width: rem(15);
+      height: rem(2);
+      background-color: #999ca3;
+      display: block;
+
+      @include sm {
+        width: rem(7);
+      }
+
+      &:first-child,
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(7),
+      &:nth-child(8),
+      &:nth-child(9),
+      &:nth-child(10),
+      &:nth-child(11) {
+        background-color: $sc;
+      }
+
+      &:nth-child(12) {
+        display: none;
+      }
+    }
+  }
+
+  &__tracking-departure,
+  &__tracking-destination {
+    position: absolute;
+    width: rem(18);
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: '';
+      border-radius: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &:before {
+      width: rem(18);
+      height: rem(18);
+      background-color: $sc;
+    }
+
+    &:after {
+      width: rem(8);
+      height: rem(8);
+      background-color: $mc;
+    }
+
+    span {
+      position: absolute;
+      top: rem(22);
+      font-size: rem(14);
+      font-weight: 300;
+      color: $za;
+
+      @include sm {
+        font-size: rem(11);
+      }
+    }
+  }
+
+  &__tracking-departure {
+    left: 0;
+
+    &:before,
+    &:after {
+      left: rem(9);
+    }
+
+    span {
+      left: 0;
+    }
+  }
+
+  &__tracking-destination {
+    right: 0;
+
+    &:before,
+    &:after {
+      right: 0;
+    }
+
+    span {
+      right: 0;
+    }
   }
 }
