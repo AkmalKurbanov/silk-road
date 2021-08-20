@@ -70,7 +70,7 @@
       line-height: rem(24);
       color: $wc;
       font-weight: 300;
-      margin-bottom: rem(60);
+      margin-bottom: rem(30);
 
       @include lg {
         margin-bottom: rem(40);
@@ -88,6 +88,10 @@
         margin-bottom: rem(20);
         font-size: rem(14);
       }
+    }
+
+    a {
+      margin-bottom: rem(30);
     }
   }
 }
@@ -181,7 +185,7 @@
     &:nth-child(2) {
       @include md {
         padding-right: 0 !important;
-          border: none;
+        border: none;
       }
 
       @include xs {

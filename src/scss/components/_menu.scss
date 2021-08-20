@@ -62,11 +62,16 @@
   &__wrap {
     ul {
       display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 100%;
 
       li {
         position: relative;
         transition: $tr;
-        flex-basis: 20%;
+        // flex-basis: 20%;
+        flex-basis: 50%;
         align-items: stretch;
         display: flex;
 
