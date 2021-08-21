@@ -1,0 +1,181 @@
+.log-in {
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+  @include xs {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.68);
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: stretch;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
+    @include xs {
+      flex-direction: column;
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: translate(0);
+    }
+  }
+
+  &__col {
+    width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @include xs {
+      width: 100%;
+    }
+
+    &:first-child {
+      &:before {
+        position: absolute;
+        content: '';
+        width: rem(2);
+        height: 90%;
+        background-color: $wc;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &:last-child {
+      position: relative;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding-left: rem(80);
+
+      @include lg {
+        padding-left: rem(50);
+      }
+
+      @include md {
+        padding-left: rem(40);
+      }
+
+      @include sm {
+        padding-left: rem(30);
+      }
+
+      @include xs {
+        padding-left: rem(20);
+        align-items: center;
+        justify-content: center;
+        padding: 0 rem(15) rem(15);
+      }
+    }
+
+
+
+    .logo {
+      max-width: rem(532);
+      padding: rem(20);
+
+      svg {
+        height: auto;
+      }
+
+      @include lg {
+        max-width: rem(450);
+      }
+
+      @include md {
+        max-width: rem(400);
+      }
+
+      @include sm {
+        max-width: rem(350);
+      }
+
+      @include xs {
+        max-width: rem(200);
+      }
+
+      a {
+        display: flex;
+
+        svg {
+          width: 100%;
+        }
+      }
+    }
+
+    form {
+      padding-top: rem(30);
+      max-width: rem(390);
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+
+      @include xs {
+        overflow: hidden !important;
+      }
+    }
+
+    .input {
+      margin-bottom: rem(31);
+
+      @include sm {
+        height: 35px;
+      }
+
+      input {
+        color: $wc;
+        font-weight: 300;
+      }
+    }
+
+    .forget-password {
+      float: right;
+      text-decoration: underline;
+      color: $wc;
+      font-size: rem(14);
+      font-weight: 400;
+
+      &:hover {
+        color: $wc;
+      }
+    }
+  }
+
+  &__additional {
+    color: $wc;
+    font-weight: 400;
+    margin-top: rem(30);
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+      color: $wc;
+      font-weight: 500;
+      margin-left: rem(10);
+
+      &:hover {
+        color: $mc;
+      }
+    }
+  }
+}
