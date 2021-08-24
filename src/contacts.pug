@@ -80,10 +80,28 @@ block main
                         =time2
 
                 .contacts__map-col
-                  iframe(src="https://www.google.com/maps/d/u/0/embed?hl=ru&mid="+ map +"")
-            +map('№1 Office in Lincolnwood, IL', '7080 McCormick Blvd, Lincolnwood, IL 60712', 'Monday - Friday', '9AM - 5PM', 'Saturday', '10AM - 1PM', '1dHoDo1dsfcoMp1QKhMfXzAhMclNbbLWi&ll=42.00863697086463%2C-87.71184798854802&z=18')
-            +map('№2 Warehouse Mundelein, IL', '1304 Derby Lane, Mundelein, IL 60060', 'Monday - Friday', '9AM - 5PM', 'Saturday', '10AM - 1PM', '1dHoDo1dsfcoMp1QKhMfXzAhMclNbbLWi&ll=42.23615731632202%2C-87.98171449999998&z=18')
-            +map('№3 Downtown Chicago, IL', '1 E 8th Street, Chicago, IL 60605 ', 'Monday - Friday', '9AM - 5PM', 'Saturday', '10AM - 1PM', '1dHoDo1dsfcoMp1QKhMfXzAhMclNbbLWi&ll=41.871714866201685%2C-87.62727699999999&z=18')
+                  !=map
+            +map('№1 Office in Lincolnwood, IL', '7080 McCormick Blvd, Lincolnwood, IL 60712', 'Monday - Friday', '9AM - 5PM', 'Saturday', '10AM - 1PM', '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2964.6134261785696!2d-87.71391888425947!3d42.00857126521774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fce31270698c1%3A0x85c089e90c276abf!2s7080%20N%20McCormick%20Blvd%2C%20Lincolnwood%2C%20IL%2060712%2C%20%D0%A1%D0%A8%D0%90!5e0!3m2!1sru!2skg!4v1629710018838!5m2!1sru!2skg" style="border:0;" allowfullscreen="" loading="lazy"></iframe>')
+            +map('№2 Warehouse Mundelein, IL', '1304 Derby Lane, Mundelein, IL 60060', 'Monday - Friday', '9AM - 5PM', 'Saturday', '10AM - 1PM', '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2953.989048313273!2d-87.98390568425444!3d42.236046950916204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880f97c863753c41%3A0x32cd02861d66f908!2zMTMwNCBEZXJieSBMbiwgTXVuZGVsZWluLCBJTCA2MDA2MCwg0KHQqNCQ!5e0!3m2!1sru!2skg!4v1629710098685!5m2!1sru!2skg" style="border:0;" allowfullscreen="" loading="lazy"></iframe>')
+            
+            .contacts__map
+              .contacts__map-col
+                .contacts__block
+                  h2.title №3 Downtown Chicago, IL
+                  ul 
+                    li.contacts__location
+                      svg(xmlns='http://www.w3.org/2000/svg' width='13' height='18' viewBox='0 0 13 18' fill='none')
+                        path(d='M6.10887 0C2.74045 0 0 2.74041 0 6.10884C0 7.46244 0.796921 9.52102 2.50797 12.5872C3.67556 14.6794 4.83777 16.4466 4.8868 16.5211L5.72682 17.7943C5.81151 17.9227 5.95501 18 6.10887 18C6.26273 18 6.40623 17.9227 6.49093 17.7943L7.33091 16.5211C7.37946 16.4475 8.53321 14.6956 9.70977 12.5872C11.4208 9.52116 12.2177 7.46258 12.2177 6.10884C12.2177 2.74041 9.47729 0 6.10887 0ZM8.91043 12.1411C7.75024 14.22 6.61473 15.9445 6.56687 16.0169L6.10887 16.7111L5.65102 16.0171C5.60291 15.9441 4.45868 14.2042 3.30731 12.1411C1.72017 9.29692 0.915412 7.26734 0.915412 6.10884C0.915412 3.24517 3.24517 0.915412 6.10887 0.915412C8.97257 0.915412 11.3023 3.24517 11.3023 6.10884C11.3023 7.26749 10.4976 9.297 8.91043 12.1411Z' fill='#616161')
+                        path(d='M6.1087 2.68359C4.24108 2.68359 2.72168 4.20303 2.72168 6.07061C2.72168 7.93819 4.24108 9.45763 6.1087 9.45763C7.97633 9.45763 9.49573 7.93819 9.49573 6.07061C9.49573 4.20303 7.97633 2.68359 6.1087 2.68359ZM6.1087 8.54222C4.74584 8.54222 3.63709 7.43347 3.63709 6.07061C3.63709 4.70775 4.74584 3.599 6.1087 3.599C7.47161 3.599 8.58032 4.70775 8.58032 6.07061C8.58032 7.43347 7.47161 8.54222 6.1087 8.54222Z' fill='#616161')
+                      | 1 E 8th Street, Chicago, IL 60605
+                    li.contacts__time
+                        svg(xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 13 13' fill='none')
+                          path(d='M6.49999 0C2.91596 0 0 2.91596 0 6.49999C0 10.084 2.91596 13 6.49999 13C10.084 13 13 10.084 13 6.49999C13 2.91596 10.084 0 6.49999 0ZM6.49999 12.4348C3.22738 12.4348 0.565208 9.77259 0.565208 6.49999C0.565208 3.22738 3.22738 0.565208 6.49999 0.565208C9.77259 0.565208 12.4348 3.22738 12.4348 6.49999C12.4348 9.77259 9.77259 12.4348 6.49999 12.4348Z' fill='#616161')
+                          path(d='M9.24346 8.84399L6.78252 6.38301V1.9783C6.78252 1.8223 6.6559 1.69568 6.4999 1.69568C6.3439 1.69568 6.21729 1.8223 6.21729 1.9783V6.50004C6.21729 6.57521 6.24725 6.64701 6.29982 6.70013L8.84329 9.2436C8.89869 9.29842 8.97102 9.32613 9.04338 9.32613C9.11573 9.32613 9.18806 9.29845 9.24346 9.2436C9.35368 9.13336 9.35368 8.9542 9.24346 8.84399Z' fill='#616161')
+                        | По предварительной записи
+              .contacts__map-col
+                iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.985428009063!2d-87.62932718426248!3d41.87165997379557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2c99946ee233%3A0x97edd2111ac18bbe!2zMSBFIDh0aCBTdCwgQ2hpY2FnbywgSUwgNjA2MDUsINCh0KjQkA!5e0!3m2!1sru!2skg!4v1629710126173!5m2!1sru!2skg' style='border:0;' allowfullscreen='' loading='lazy')
+
         .add-info.add-info--contacts(style="background-image: url('assets/img/add-info.jpg')")
           .container
             .add-info__wrap
